@@ -51,7 +51,7 @@ namespace PunisherDataGenerator
             _roomTypesRepository.Add(new RoomType("De Luxe Room", 250.0m));
             _roomTypesRepository.Add(new RoomType("De Luxe Grande Suite", 400.0m));
         }*/
-        private void GenerateEmployeeActions()
+        private void GenerateEmployee()
         {
             _roomTypesRepository.Add(new RoomType("Single Standard Room", 40.0m));
             _roomTypesRepository.Add(new RoomType("Single Superior Room", 70));
@@ -61,11 +61,7 @@ namespace PunisherDataGenerator
             _roomTypesRepository.Add(new RoomType("De Luxe Grande Suite", 400.0m));
         }
 
-        private void GenerateEmployee()
-        {
-        }
-
-        /* private void GenerateRooms()
+       /* private void GenerateRooms()
         {
             var singleStandartRoom = _roomTypesRepository.FindByName("Single Standard Room");
             var singleSuperiorRoom = _roomTypesRepository.FindByName("Single Superior Room");
