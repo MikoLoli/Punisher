@@ -59,8 +59,17 @@ namespace PunisherDataGenerator
 
         private void GenerateEmployeeActions()
         {
-           
+            _employeeActionRepository.Add(new EmployeeAction("8/6/2014 11:57:23 AM", "3 hours was late"));
+            _employeeActionRepository.Add(new EmployeeAction("9/13/2014 3:50:03 PM", "Completed a creative project"));
+            _employeeActionRepository.Add(new EmployeeAction("3/25/2014 09:57:23 AM", "Systematic absence at meetings"));
+            _employeeActionRepository.Add(new EmployeeAction("8/15/2014 10:25:22 AM", "5 hours was late"));
+            _employeeActionRepository.Add(new EmployeeAction("10/5/2014 08:17:08 PM", "Overtime 2 hours"));
         }
-        
+
+        public void GenerateMain()
+        {
+            _employeeRepository.AsQueryable().ElementAt<Employee>(1).EmployeeActions.Add(_employeeActionRepository.Get());
+        }
+
     }
 }

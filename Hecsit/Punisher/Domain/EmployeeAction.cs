@@ -16,5 +16,6 @@ namespace Punisher.Domain
             ActionDate = actionDate;
             ActionDescription = actionDescription;
         }
+        
     }
 }

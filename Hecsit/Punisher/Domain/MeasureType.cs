@@ -8,19 +8,20 @@ namespace Punisher.Domain
 {
     public class MeasureType
     {
-        public string[] MeasureTitle =
-        {
-            "Reproof",
-            "Payroll Deduction",
-            "Summary Punishment",
-            "Dismissal",
-            "Gratitude",
-            "Premium",
-            "Permit"
-        };
+        public List <string> MeasureTitle = new List <string> ();
         public int Severity { get; }
         public string MeasureTypeDescription { get; set; }
 
+        public MeasureType()
+        {
+            MeasureTitle.Add("Reproof");
+            MeasureTitle.Add("Payroll Deduction");
+            MeasureTitle.Add("Summary Punishment");
+            MeasureTitle.Add("Dismissal");
+            MeasureTitle.Add("Gratitude");
+            MeasureTitle.Add("Premium");
+            MeasureTitle.Add("Permit");
+        }
     }
 
     public class WeakMeasureType : MeasureType

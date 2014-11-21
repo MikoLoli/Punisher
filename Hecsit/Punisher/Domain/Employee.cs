@@ -16,6 +16,7 @@ namespace Punisher.Domain
         public string Position { get; set; }
         public decimal WageRate { get; set; }
         public decimal Salary { get; set; }
+        public List <EmployeeAction> EmployeeActions = new List<EmployeeAction>();
 
         public Employee( string fio, string personnelNumber, DateTime recruitmentDate, 
             int reputation, string position, decimal wageRate, decimal salary)
@@ -27,6 +28,11 @@ namespace Punisher.Domain
             this.Position = position;
             this.WageRate = wageRate;
             this.Salary = salary;
+        }
+
+        public void AddActionToEmployee(EmployeeAction employeeAction)
+        {
+            this.EmployeeActions.Add(employeeAction);
         }
     }
 }

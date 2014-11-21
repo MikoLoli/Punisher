@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Punisher
+namespace PunisherConsole
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
