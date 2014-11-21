@@ -8,19 +8,24 @@ namespace Punisher.Domain
 {
     public class ActionType
     {
-        public enum Title
+        public string[] Title =
         {
-            Truancy04,
-            Truancy58,
-            Damage,
-            Theft,
-            Overtime,
-            CreativeTask
-        }
-        public enum Type
+            "Truancy04",
+            "Truancy58",
+            "Damage",
+            "Theft",
+            "Overtime",
+            "CreativeTask"
+        };
+
+        public string[] Type =
         {
-            bonus,
-            punishment
+            "bonus",
+            "punishment"
+        };
+        public void ActionTypeAdd ( string title, string type)
+        {
+            
         }
     }
 }

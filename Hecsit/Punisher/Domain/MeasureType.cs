@@ -8,16 +8,16 @@ namespace Punisher.Domain
 {
     public class MeasureType
     {
-        public enum MeasureTitle
+        public string[] MeasureTitle =
         {
-            Reproof,
-            PayrollDeduction,
-            SummaryPunishment,
-            Dismissal,
-            Gratitude,
-            Premium,
-            Permit
-        }
+            "Reproof",
+            "Payroll Deduction",
+            "Summary Punishment",
+            "Dismissal",
+            "Gratitude",
+            "Premium",
+            "Permit"
+        };
         public int Severity { get; }
         public string MeasureTypeDescription { get; set; }
 

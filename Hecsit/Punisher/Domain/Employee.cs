@@ -10,15 +10,23 @@ namespace Punisher.Domain
     {
         public string FIO { get; set; }
         public string PersonnelNumber { get; set; }
-        public string RecruitmentDate { get; set; }
+        public DateTime RecruitmentDate { get; set; }
         public int Reputation { get; set; }
 
         public string Position { get; set; }
         public decimal WageRate { get; set; }
         public decimal Salary { get; set; }
 
-        public Employee()
+        public Employee( string fio, string personnelNumber, DateTime recruitmentDate, 
+            int reputation, string position, decimal wageRate, decimal salary)
         {
+            this.FIO = fio;
+            this.PersonnelNumber = personnelNumber;
+            this.RecruitmentDate = recruitmentDate;
+            this.Reputation = reputation;
+            this.Position = position;
+            this.WageRate = wageRate;
+            this.Salary = salary;
         }
     }
 }

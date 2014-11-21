@@ -8,13 +8,13 @@ namespace Punisher.Domain
 {
     public class EmployeeAction
     {
-        public DateTime Date { get; set; }
+        public DateTime ActionDate { get; set; }
         public string ActionDescription { get; set; }
 
-        public void ActionAdd();
-
-        public EmployeeAction()
+        public EmployeeAction ( DateTime actionDate, string actionDescription)
         {
+            ActionDate = actionDate;
+            ActionDescription = actionDescription;
         }
     }
 }
