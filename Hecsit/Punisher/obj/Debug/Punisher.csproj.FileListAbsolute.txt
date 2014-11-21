@@ -1,1 +1,6 @@
 D:\ПРИС\Hecsit\Punisher\bin\Debug\Punisher.exe.config
+C:\Users\rlibe_000\Source\Repos\Punisher\Hecsit\Punisher\bin\Debug\Punisher.dll.config
+C:\Users\rlibe_000\Source\Repos\Punisher\Hecsit\Punisher\bin\Debug\Punisher.dll
+C:\Users\rlibe_000\Source\Repos\Punisher\Hecsit\Punisher\bin\Debug\Punisher.pdb
+C:\Users\rlibe_000\Source\Repos\Punisher\Hecsit\Punisher\obj\Debug\Punisher.dll
+C:\Users\rlibe_000\Source\Repos\Punisher\Hecsit\Punisher\obj\Debug\Punisher.pdb

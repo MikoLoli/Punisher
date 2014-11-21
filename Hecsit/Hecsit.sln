@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Punisher", "Punisher\Punisher.csproj", "{D26612E3-9F74-441E-A2D4-88F920C21FE1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PunisherDataGenerator", "PunisherDataGenerator\PunisherDataGenerator.csproj", "{18610B07-2A7D-44E8-B158-238FC76CBD27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PunisherConsole", "PunisherConsole\PunisherConsole.csproj", "{F9DFADD9-9663-49AA-BECE-58CB72B90F2A}"
 EndProject
@@ -19,10 +17,6 @@ Global
 		{D26612E3-9F74-441E-A2D4-88F920C21FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D26612E3-9F74-441E-A2D4-88F920C21FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D26612E3-9F74-441E-A2D4-88F920C21FE1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18610B07-2A7D-44E8-B158-238FC76CBD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18610B07-2A7D-44E8-B158-238FC76CBD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18610B07-2A7D-44E8-B158-238FC76CBD27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18610B07-2A7D-44E8-B158-238FC76CBD27}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9DFADD9-9663-49AA-BECE-58CB72B90F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9DFADD9-9663-49AA-BECE-58CB72B90F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9DFADD9-9663-49AA-BECE-58CB72B90F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU

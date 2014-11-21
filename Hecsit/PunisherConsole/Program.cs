@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Feonufry.CUI.Menu.Builders;
+using Punisher.Domain;
+using Punisher.TestData;
+using PunisherConsole.Actions;
 
 namespace PunisherConsole
 {
@@ -10,6 +10,18 @@ namespace PunisherConsole
     {
         static void Main(string[] args)
         {
+	        var repository = new MemoryRepository<MeasureType>();
+	        var generator = new TestDataGenerator(repository);
+			generator.Generate();
+
+	        new MenuBuilder()
+		        .Title("Hello World!")
+		        .Prompt("Enter command")
+		        .Item("View Measure Types", new ViewMeasureTypesAction(repository))
+		        .Item("Second Item", new SecondAction())
+		        .Exit("Exit")
+		        .GetMenu()
+		        .Run();
         }
     }
 }

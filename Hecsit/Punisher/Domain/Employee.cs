@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Punisher.Domain
 {
     public class Employee
     {
+		private readonly List<EmployeeAction> _employeeActions = new List<EmployeeAction>();
+
         public string FIO { get; set; }
         public string PersonnelNumber { get; set; }
         public DateTime RecruitmentDate { get; set; }
@@ -16,9 +15,13 @@ namespace Punisher.Domain
         public string Position { get; set; }
         public decimal WageRate { get; set; }
         public decimal Salary { get; set; }
-        public List <EmployeeAction> EmployeeActions = new List<EmployeeAction>();
 
-        public Employee( string fio, string personnelNumber, DateTime recruitmentDate, 
+	    public IEnumerable<EmployeeAction> EmployeeActions
+	    {
+		    get { return _employeeActions; }
+	    }
+
+	    public Employee( string fio, string personnelNumber, DateTime recruitmentDate, 
             int reputation, string position, decimal wageRate, decimal salary)
         {
             this.FIO = fio;
@@ -30,9 +33,9 @@ namespace Punisher.Domain
             this.Salary = salary;
         }
 
-        public void AddActionToEmployee(EmployeeAction employeeAction)
+        public void AddAction(EmployeeAction action)
         {
-            this.EmployeeActions.Add(employeeAction);
+            _employeeActions.Add(action);
         }
     }
 }

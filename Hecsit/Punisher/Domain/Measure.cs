@@ -1,16 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Punisher.Domain
 {
-    public class Measure
+    public class Measure : Entity
     {
-        public DateTime Date { get; set; }
-        public string MeasureDescription { get; set; }
+	    private bool _approved;
 
-        public void Approve();
+        public DateTime Date { get; set; }
+        
+		public string Description { get; set; }
+
+	    public MeasureType Type { get; set; }
+
+	    public bool Approved
+	    {
+		    get { return _approved; }
+	    }
+
+	    public Measure(DateTime date, string description, MeasureType type)
+	    {
+		    Date = date;
+		    Description = description;
+		    Type = type;
+	    }
+
+	    public void Approve()
+	    {
+		    _approved = true;
+		    Date = DateTime.Now;
+	    }
     }
 }
