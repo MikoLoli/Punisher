@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Punisher.Domain
 {
-    public class Employee
+    public class Employee : Entity
     {
 		private readonly List<EmployeeAction> _employeeActions = new List<EmployeeAction>();
 
