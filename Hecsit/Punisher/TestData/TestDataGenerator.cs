@@ -53,17 +53,17 @@ namespace Punisher.TestData
                 _measureTypesRepository.AsQueryable().ElementAt<MeasureType>(7)));
 
 
-            _employeeRepository.Add(new Employee("Nolan Ross", "001", DateTime.Parse("2/16/2008 11:15:12 AM"),
+            _employeeRepository.Add(new Employee("Nolan Ross", "001", DateTime.Parse("2/16/2008 11:15:12 AM", System.Globalization.CultureInfo.InvariantCulture),
                  3, "DG", 1.0m, 1000000.0m));
-            _employeeRepository.Add(new Employee("Aiden Mathis", "002", DateTime.Parse("10/25/2010 11:04:53 AM"),
+            _employeeRepository.Add(new Employee("Aiden Mathis", "002", DateTime.Parse("10/25/2010 11:04:53 AM", System.Globalization.CultureInfo.InvariantCulture),
                 1, "Financial analyst", 1.0m, 50000.0m));
-            _employeeRepository.Add(new Employee("Mason Treadwell", "003", DateTime.Parse("7/7/2011 09:20:13 AM"),
+            _employeeRepository.Add(new Employee("Mason Treadwell", "003", DateTime.Parse("7/7/2011 09:20:13 AM", System.Globalization.CultureInfo.InvariantCulture),
                 0, "Redactor", 1.0m, 40000.0m));
-            _employeeRepository.Add(new Employee("David Clarke", "004", DateTime.Parse("3/14/2009 1:40:28 PM"),
+            _employeeRepository.Add(new Employee("David Clarke", "004", DateTime.Parse("3/14/2009 1:40:28 PM", System.Globalization.CultureInfo.InvariantCulture),
                 2, "Team leader", 1.0m, 80000.0m));
-            _employeeRepository.Add(new Employee("Padma Lahare", "005", DateTime.Parse("8/5/2014 09:57:23 AM"),
+            _employeeRepository.Add(new Employee("Padma Lahare", "005", DateTime.Parse("8/5/2014 09:57:23 AM", System.Globalization.CultureInfo.InvariantCulture),
                 1, "Junior developer", 0.5m, 30000.0m));
-            _employeeRepository.Add(new Employee("Margaux LeMarchal", "006", DateTime.Parse("3/14/2012 10:05:48 AM"),
+            _employeeRepository.Add(new Employee("Margaux LeMarchal", "006", DateTime.Parse("3/14/2012 10:05:48 AM", System.Globalization.CultureInfo.InvariantCulture),
                 1, "PR manager", 1.0m, 50000.0m));
 
             _employeeActionRepository.Add(new EmployeeAction(_employeeRepository.AsQueryable().ElementAt<Employee>(2),

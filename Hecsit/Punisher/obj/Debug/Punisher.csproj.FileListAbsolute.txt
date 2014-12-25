@@ -10,3 +10,4 @@ d:\Punisher\Hecsit\Punisher\bin\Debug\Punisher.pdb
 d:\Punisher\Hecsit\Punisher\obj\Debug\Punisher.csprojResolveAssemblyReference.cache
 d:\Punisher\Hecsit\Punisher\obj\Debug\Punisher.dll
 d:\Punisher\Hecsit\Punisher\obj\Debug\Punisher.pdb
+D:\Punisher\Hecsit\Punisher\bin\Debug\Feonufry.CUI.dll

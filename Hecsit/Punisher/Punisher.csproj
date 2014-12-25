@@ -35,6 +35,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Feonufry.CUI">
+      <HintPath>..\packages\Feonufry.CUI.1.0.0\lib\Feonufry.CUI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +56,7 @@
     <Compile Include="Domain\MeasureKind.cs" />
     <Compile Include="Domain\MeasureType.cs" />
     <Compile Include="Domain\MemoryRepository.cs" />
+    <Compile Include="Domain\ViewEmployeeInfoAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestData\TestDataGenerator.cs" />
   </ItemGroup>

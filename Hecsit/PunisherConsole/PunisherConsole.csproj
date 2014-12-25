@@ -44,8 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\SecondAction.cs" />
-    <Compile Include="Actions\ViewMeasureTypesAction.cs" />
+    <Compile Include="Actions\AwardAssignAction.cs" />
+    <Compile Include="Actions\ChastisementAssignAction.cs" />
+    <Compile Include="Actions\CheckageAssignAction.cs" />
+    <Compile Include="Actions\CheckInListAction.cs" />
+    <Compile Include="Actions\DismissalAction.cs" />
+    <Compile Include="Actions\EmployeeActionAddAction.cs" />
+    <Compile Include="Actions\FindByNameAction.cs" />
+    <Compile Include="Actions\GratitudeAssignAction.cs" />
+    <Compile Include="Actions\ViewEmployeeInformationAction.cs" />
+    <Compile Include="Actions\VoyageAssignAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

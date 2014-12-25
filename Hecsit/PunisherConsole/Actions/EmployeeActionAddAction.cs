@@ -5,7 +5,7 @@ using Punisher.Domain;
 
 namespace PunisherConsole.Actions
 {
-	public class SecondAction : IAction
+	public class EmployeeActionAddAction : IAction
 	{
         private readonly IRepository<Employee> _employeeRepository;
         private readonly IRepository<EmployeeAction> _employeeActionRepository;
@@ -13,7 +13,7 @@ namespace PunisherConsole.Actions
         private readonly IRepository<MeasureType> _measureTypesRepository;
         private readonly IRepository<Measure> _measureRepository;
 
-	    public SecondAction(IRepository<Employee> employeeRepository, IRepository<EmployeeAction> employeeActionRepository, IRepository<ActionType> actionTypesRepository, IRepository<MeasureType> measureTypesRepository, IRepository<Measure> measureRepository)
+	    public EmployeeActionAddAction(IRepository<Employee> employeeRepository, IRepository<EmployeeAction> employeeActionRepository, IRepository<ActionType> actionTypesRepository, IRepository<MeasureType> measureTypesRepository, IRepository<Measure> measureRepository)
 	    {
 	        _employeeRepository = employeeRepository;
 	        _employeeActionRepository = employeeActionRepository;
