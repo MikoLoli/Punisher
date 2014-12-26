@@ -25,7 +25,7 @@ namespace PunisherConsole
                 .Item("Просмотреть информацию о сотрудниках", new ViewEmployeeInformationAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
                 .Item("Добавить действие", new EmployeeActionAddAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
                 .Submenu("Применить поощрение")
-                    .Item("Выписать благодарность", new GratitudeAssignAction())
+                    .Item("Выписать благодарность", new GratitudeAssignAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
                     .Item("Назначить премию", new AwardAssignAction())
                     .Item("Путевка", new VoyageAssignAction())
                     .Exit("Назад")

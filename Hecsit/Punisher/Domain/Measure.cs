@@ -17,11 +17,14 @@ namespace Punisher.Domain
 		    get { return _approved; }
 	    }
 
-	    public Measure(DateTime date, string description, MeasureType type)
+        public Employee EmployeeForMeasure;
+
+	    public Measure(DateTime date, string description, MeasureType type, Employee employee)
 	    {
 		    Date = date;
 		    Description = description;
 		    Type = type;
+	        EmployeeForMeasure = employee;
 	    }
 
 	    public void Approve()

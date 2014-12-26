@@ -70,7 +70,10 @@ namespace Punisher.TestData
                 DateTime.Now.Subtract(TimeSpan.FromDays(2)),
                 "None",
                 _actionTypesRepository.AsQueryable().ElementAt<ActionType>(0)));
-            
+            _employeeActionRepository.Add(new EmployeeAction(_employeeRepository.AsQueryable().ElementAt<Employee>(0),
+                DateTime.Now.Subtract(TimeSpan.FromDays(17)),
+                "He's so cute",
+                _actionTypesRepository.AsQueryable().ElementAt<ActionType>(4)));
 		}
 	}
 }

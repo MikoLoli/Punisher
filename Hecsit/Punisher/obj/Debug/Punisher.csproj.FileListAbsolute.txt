@@ -11,3 +11,10 @@ d:\Punisher\Hecsit\Punisher\obj\Debug\Punisher.csprojResolveAssemblyReference.ca
 d:\Punisher\Hecsit\Punisher\obj\Debug\Punisher.dll
 d:\Punisher\Hecsit\Punisher\obj\Debug\Punisher.pdb
 D:\Punisher\Hecsit\Punisher\bin\Debug\Feonufry.CUI.dll
+C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\bin\Debug\Punisher.dll.config
+C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\bin\Debug\Punisher.dll
+C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\bin\Debug\Punisher.pdb
+C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\bin\Debug\Feonufry.CUI.dll
+C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\obj\Debug\Punisher.csprojResolveAssemblyReference.cache
+C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\obj\Debug\Punisher.dll
+C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\obj\Debug\Punisher.pdb

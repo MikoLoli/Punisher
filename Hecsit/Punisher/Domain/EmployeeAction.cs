@@ -21,5 +21,10 @@ namespace Punisher.Domain
 		    Description = description;
 		    Type = type;
 	    }
+
+        public override string ToString()
+        {
+            return string.Format("Сотрудник : {0}\nДата деяния : {1}\nОписание : {2}\nТип : {3}\n", Employee.FIO, Date, Description, Type);
+        }
     }
 }

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\ActionTypeRepositoryExtention.cs" />
     <Compile Include="Domain\EmployeeAction.cs" />
     <Compile Include="Domain\ActionType.cs" />
     <Compile Include="Domain\Employee.cs" />
