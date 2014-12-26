@@ -34,13 +34,17 @@ namespace PunisherConsole.Actions
             var checkInListMenu = new MenuBuilder()
                 .RunnableOnce()
                 .Title("Список сотрудников");
-            foreach (var example in employees)
+            foreach (var employee in employees)
             {
-                //var entityId = entity.Id;
-                checkInListMenu.Item(string.Format("-*-{0}", example.FIO), new ViewEmployeeInfoAction(example.FIO,
-                    _employeeRepository, _employeeActionRepository, _actionTypesRepository, _measureTypesRepository, _measureRepository));
+                var employeeId = employee.Id;
+                checkInListMenu.Item(string.Format("-*-{0}", employee.FIO), ctx => RenameMe(ctx, employeeId));
             }
             checkInListMenu.GetMenu().Run();
         }
+
+	    private void RenameMe(ActionExecutionContext ctx, Guid employeeId)
+	    {
+		    // TODO: Blah-blah-blah
+	    }
     }
 }
