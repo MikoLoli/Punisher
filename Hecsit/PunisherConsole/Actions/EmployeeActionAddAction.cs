@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Feonufry.CUI.Actions;
+using Feonufry.CUI.Menu.Builders;
 using Punisher.Domain;
 
 namespace PunisherConsole.Actions
@@ -24,12 +25,25 @@ namespace PunisherConsole.Actions
 
 	    public void Perform(ActionExecutionContext context)
 		{
-			context.Out.Write(ConsoleColor.Green, "Сотрудники");
-            //var actionTypes = _actionTypesRepository.AsQueryable().ToList();
-            //foreach (var type in actionTypes)
-            //{
-            //    context.Out.WriteLine(type.ToString());
-            //}
+			Console.Clear();
+            Console.WriteLine("Выберите сотрудника для добавления действия.");
+            var employees = _employeeRepository.AsQueryable().ToList();
+	        int n = 1;
+            foreach (var example in employees)
+            {
+                Console.WriteLine( n + example.FIO );
+                n++;
+            }
+	        string empNum = Console.ReadLine();
+	        switch (empNum)
+	        {
+                case '1':
+	            {
+                    employees = _employeeRepository.FindByFio(employeeFIO);
+                    foreach (var employeeExample in employees)
+                        Console.WriteLine("{0}", employeeExample);
+	            }
+	        }
 		}
 	}
 }

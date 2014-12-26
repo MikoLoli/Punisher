@@ -32,9 +32,12 @@ namespace Punisher.Domain
         public void Perform(ActionExecutionContext context)
         {
             Console.Clear();
+            var employees = _employeeRepository.FindByFio(employeeFIO);
+            foreach (var employeeExample in employees)
+                Console.WriteLine("{0}", employeeExample);
             //var employee = _employeeRepository.fi
-            foreach (var example in _employeeRepository)
-                Console.WriteLine(example.FIO);
+            ///foreach (var example in _employeeRepository)
+            ///    Console.WriteLine(example.FIO);
             //context.Out.WriteLine(_employeeRepository.AsQueryable().ElementAt<Employee>());
         }
     }

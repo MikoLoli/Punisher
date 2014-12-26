@@ -50,6 +50,7 @@
     <Compile Include="Domain\EmployeeAction.cs" />
     <Compile Include="Domain\ActionType.cs" />
     <Compile Include="Domain\Employee.cs" />
+    <Compile Include="Domain\EmployeeRepositoryExtention.cs" />
     <Compile Include="Domain\Entity.cs" />
     <Compile Include="Domain\IRepository.cs" />
     <Compile Include="Domain\Measure.cs" />

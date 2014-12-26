@@ -32,7 +32,7 @@ namespace PunisherConsole.Actions
 	        var menu = new MenuBuilder()
 	            .RunnableOnce()
                 .Item("Выбрать из списка", new CheckInListAction(_employeeRepository, _employeeActionRepository, _actionTypesRepository, _measureTypesRepository, _measureRepository))
-	            .Item("Выбрать по ФИО", new FindByNameAction())
+                .Item("Выбрать по ФИО", new FindByNameAction(_employeeRepository, _employeeActionRepository, _actionTypesRepository, _measureTypesRepository, _measureRepository))
 	            .Exit("Назад");
             menu.GetMenu().Run();
             //context.Out.WriteLine(ConsoleColor.Green, "Типы мер");

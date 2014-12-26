@@ -37,7 +37,7 @@ namespace PunisherConsole.Actions
             foreach (var example in employees)
             {
                 //var entityId = entity.Id;
-                checkInListMenu.Item(string.Format("-*-{0}", example.FIO), new ViewEmployeeInfoAction(example.id,
+                checkInListMenu.Item(string.Format("-*-{0}", example.FIO), new ViewEmployeeInfoAction(example.FIO,
                     _employeeRepository, _employeeActionRepository, _actionTypesRepository, _measureTypesRepository, _measureRepository));
             }
             checkInListMenu.GetMenu().Run();
