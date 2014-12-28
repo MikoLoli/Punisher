@@ -33,6 +33,10 @@ namespace Punisher.Domain
             this.Salary = salary;
         }
 
+        public Employee()
+        {
+        }
+
         public void AddAction(EmployeeAction action)
         {
             _employeeActions.Add(action);

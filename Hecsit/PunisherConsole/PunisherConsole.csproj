@@ -49,11 +49,14 @@
     <Compile Include="Actions\CheckageAssignAction.cs" />
     <Compile Include="Actions\CheckInListAction.cs" />
     <Compile Include="Actions\DismissalAction.cs" />
-    <Compile Include="Actions\EmployeeActionAddAction.cs" />
+    <Compile Include="Actions\AddActionForEmployeeAction.cs" />
     <Compile Include="Actions\FindByNameAction.cs" />
     <Compile Include="Actions\GratitudeAssignAction.cs" />
+    <Compile Include="Actions\ShowAllAction.cs" />
+    <Compile Include="Actions\ViewEmployeeInfoAction.cs" />
     <Compile Include="Actions\ViewEmployeeInformationAction.cs" />
     <Compile Include="Actions\VoyageAssignAction.cs" />
+    <Compile Include="API\ActionAPI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +70,7 @@
       <Name>Punisher</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

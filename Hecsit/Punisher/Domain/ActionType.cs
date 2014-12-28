@@ -14,6 +14,10 @@ namespace Punisher.Domain
 		    StrongMeasure = strongMeasure;
 	    }
 
+        public ActionType()
+        {
+        }
+
         public override string ToString()
         {
             return string.Format("Тип деяния : {0}\nСлабая мера : {1}\nЖесткая мера : {2}\n",Name,WeakMeasure,StrongMeasure);

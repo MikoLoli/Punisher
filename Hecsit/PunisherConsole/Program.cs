@@ -4,6 +4,7 @@ using Feonufry.CUI.Menu.Builders;
 using Punisher.Domain;
 using Punisher.TestData;
 using PunisherConsole.Actions;
+using PunisherConsole.API;
 
 namespace PunisherConsole
 {
@@ -16,14 +17,19 @@ namespace PunisherConsole
             var actionTypeRep = new MemoryRepository<ActionType>();
             var measureTypeRep = new MemoryRepository<MeasureType>();
             var measureRep = new MemoryRepository<Measure>();
+            var actionApi = new ActionAPI(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep);
 	        var generator = new TestDataGenerator(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep);
 			generator.Generate();
             Console.Clear();
 	        new MenuBuilder()
 		        .Title("Punisher v1.0")
 		        .Prompt("Выберите действие")
-                .Item("Просмотреть информацию о сотрудниках", new ViewEmployeeInformationAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
-                .Item("Добавить действие", new EmployeeActionAddAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
+                .Submenu("Просмотреть информацию о сотрудниках")
+                    .Item("Выбрать из списка", new CheckInListAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
+                    .Item("Выбрать по ФИО", new FindByNameAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
+                    .Exit("Назад")
+                    .End()
+                .Item("Добавить действие", new AddActionForEmployeeAction(actionApi, employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
                 .Submenu("Применить поощрение")
                     .Item("Выписать благодарность", new GratitudeAssignAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
                     .Item("Назначить премию", new AwardAssignAction())
@@ -36,6 +42,7 @@ namespace PunisherConsole
                     .Item("Увольние", new DismissalAction())
                     .Exit("Назад")
                     .End()
+                .Item("Показать все действия", new ShowAllAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
 		        .Exit("Выход")
 		        .GetMenu()
 		        .Run();

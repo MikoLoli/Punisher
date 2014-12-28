@@ -37,14 +37,24 @@ namespace PunisherConsole.Actions
             foreach (var employee in employees)
             {
                 var employeeId = employee.Id;
-                checkInListMenu.Item(string.Format("-*-{0}", employee.FIO), ctx => RenameMe(ctx, employeeId));
+                checkInListMenu.Item(string.Format("-*-{0}", employee.FIO), ctx => GetInformation(ctx, employeeId));
             }
+
             checkInListMenu.GetMenu().Run();
         }
 
-	    private void RenameMe(ActionExecutionContext ctx, Guid employeeId)
+	    private void GetInformation(ActionExecutionContext ctx, Guid employeeId)
 	    {
-		    // TODO: Blah-blah-blah
+            Console.Clear();
+            var employee = _employeeRepository.Get(employeeId);
+            Console.WriteLine("Сотрудник : " + employee.FIO);
+            Console.WriteLine("Персональнаый номер : " + employee.PersonnelNumber);
+            Console.WriteLine("Должность : " + employee.Position);
+            Console.WriteLine("Дата принятия на работу : " + employee.RecruitmentDate);
+            Console.WriteLine("Репутация : " + employee.Reputation);
+            Console.WriteLine("Ставка : " + employee.WageRate);
+            Console.WriteLine("Оклад : " + employee.Salary);
+
 	    }
     }
 }

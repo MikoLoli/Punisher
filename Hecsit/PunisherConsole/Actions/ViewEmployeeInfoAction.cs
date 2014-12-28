@@ -4,22 +4,24 @@ using Feonufry.CUI.Actions;
 using Feonufry.CUI.Menu.Builders;
 using Punisher.Domain;
 
-namespace PunisherConsole.Actions
+namespace Punisher.Domain
 {
-    public class FindByNameAction : IAction
+    public class ViewEmployeeInfoAction : IAction
     {
         private readonly IRepository<Employee> _employeeRepository;
         private readonly IRepository<EmployeeAction> _employeeActionRepository;
         private readonly IRepository<ActionType> _actionTypesRepository;
         private readonly IRepository<MeasureType> _measureTypesRepository;
         private readonly IRepository<Measure> _measureRepository;
-
-        public FindByNameAction(IRepository<Employee> employeeRepository,
+        private readonly String employeeFIO;
+        public ViewEmployeeInfoAction(String fio,
+            IRepository<Employee> employeeRepository,
             IRepository<EmployeeAction> employeeActionRepository,
             IRepository<ActionType> actionTypesRepository,
             IRepository<MeasureType> measureTypesRepository,
             IRepository<Measure> measureRepository)
         {
+            employeeFIO = fio;
             _employeeRepository = employeeRepository;
             _employeeActionRepository = employeeActionRepository;
             _actionTypesRepository = actionTypesRepository;
@@ -30,19 +32,13 @@ namespace PunisherConsole.Actions
         public void Perform(ActionExecutionContext context)
         {
             Console.Clear();
-            Console.WriteLine("Введите ФИО сотрудника: ");
-            string employeeFio = Console.ReadLine();
-            var employees = _employeeRepository.FindByFio(employeeFio);
+            var employees = _employeeRepository.FindByFio(employeeFIO);
             foreach (var employeeExample in employees)
-            {
-                Console.WriteLine("Сотрудник : " + employeeExample.FIO);
-                Console.WriteLine("Персональнаый номер : " + employeeExample.PersonnelNumber);
-                Console.WriteLine("Должность : " + employeeExample.Position);
-                Console.WriteLine("Дата принятия на работу : " + employeeExample.RecruitmentDate);
-                Console.WriteLine("Репутация : " + employeeExample.Reputation);
-                Console.WriteLine("Ставка : " + employeeExample.WageRate);
-                Console.WriteLine("Оклад : " + employeeExample.Salary);
-            }
+                Console.WriteLine("{0}", employeeExample);
+            //var employee = _employeeRepository.fi
+            ///foreach (var example in _employeeRepository)
+            ///    Console.WriteLine(example.FIO);
+            //context.Out.WriteLine(_employeeRepository.AsQueryable().ElementAt<Employee>());
         }
     }
 }
