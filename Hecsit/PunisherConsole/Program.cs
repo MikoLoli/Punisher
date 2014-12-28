@@ -1,10 +1,11 @@
-﻿
-using System;
+﻿using System;
+using Castle.Windsor;
 using Feonufry.CUI.Menu.Builders;
+using Punisher.Api;
 using Punisher.Domain;
 using Punisher.TestData;
 using PunisherConsole.Actions;
-using PunisherConsole.API;
+using Punisher.API;
 
 namespace PunisherConsole
 {
@@ -12,37 +13,35 @@ namespace PunisherConsole
     {
         static void Main(string[] args)
         {
-            var employeeRep = new MemoryRepository<Employee>();
-            var employeeActionRep = new MemoryRepository<EmployeeAction>();
-            var actionTypeRep = new MemoryRepository<ActionType>();
-            var measureTypeRep = new MemoryRepository<MeasureType>();
-            var measureRep = new MemoryRepository<Measure>();
-            var actionApi = new ActionAPI(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep);
-	        var generator = new TestDataGenerator(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep);
-			generator.Generate();
+            var container = new WindsorContainer();
+            container.Install(new CoreInstaller(), new UIInstaller());
+            var generator = container.Resolve<TestDataGenerator>();
+            generator.Generate();
+
             Console.Clear();
 	        new MenuBuilder()
+                .WithActionFactory(new WindsorActionFactory(container))
 		        .Title("Punisher v1.0")
 		        .Prompt("Выберите действие")
                 .Submenu("Просмотреть информацию о сотрудниках")
-                    .Item("Выбрать из списка", new CheckInListAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
-                    .Item("Выбрать по ФИО", new FindByNameAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
+                    .Item<CheckInListAction>("Выбрать из списка")
+                    .Item<FindByNameAction>("Выбрать по ФИО")
                     .Exit("Назад")
                     .End()
-                .Item("Добавить действие", new AddActionForEmployeeAction(actionApi, employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
+                .Item<AddActionForEmployeeAction>("Добавить действие")
                 .Submenu("Применить поощрение")
-                    .Item("Выписать благодарность", new GratitudeAssignAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
-                    .Item("Назначить премию", new AwardAssignAction())
-                    .Item("Путевка", new VoyageAssignAction())
+                    .Item<GratitudeAssignAction>("Выписать благодарность")
+                    .Item<AwardAssignAction>("Назначить премию")
+                    .Item<VoyageAssignAction>("Выдать путевку")
                     .Exit("Назад")
                     .End()
                 .Submenu("Применить наказание")
-                    .Item("Дисциплинарное взыскание", new ChastisementAssignAction())
-                    .Item("Вычет из з/п", new CheckageAssignAction())
-                    .Item("Увольние", new DismissalAction())
+                    .Item<ChastisementAssignAction>("Дисциплинарное взыскание")
+                    .Item<CheckageAssignAction>("Вычет из з/п")
+                    .Item<DismissalAction>("Увольние") 
                     .Exit("Назад")
                     .End()
-                .Item("Показать все действия", new ShowAllAction(employeeRep, employeeActionRep, actionTypeRep, measureTypeRep, measureRep))
+                .Item<ShowAllAction>("Показать все действия")
 		        .Exit("Выход")
 		        .GetMenu()
 		        .Run();

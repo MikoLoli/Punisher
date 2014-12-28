@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Feonufry.CUI.Actions;
 using Feonufry.CUI.Menu.Builders;
+using Punisher.API;
 using Punisher.Domain;
-using PunisherConsole.API;
 
 namespace PunisherConsole.Actions
 {

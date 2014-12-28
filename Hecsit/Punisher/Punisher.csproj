@@ -35,6 +35,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Feonufry.CUI">
       <HintPath>..\packages\Feonufry.CUI.1.0.0\lib\Feonufry.CUI.dll</HintPath>
     </Reference>
@@ -47,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ActionAPI.cs" />
+    <Compile Include="IoC\CoreInstaller.cs" />
     <Compile Include="Domain\ActionTypeRepositoryExtention.cs" />
     <Compile Include="Domain\EmployeeAction.cs" />
     <Compile Include="Domain\ActionType.cs" />
@@ -64,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

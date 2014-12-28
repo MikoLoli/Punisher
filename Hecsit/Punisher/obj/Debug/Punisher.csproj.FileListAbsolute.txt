@@ -18,3 +18,7 @@ C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\bin\Debug\Feonufry.CUI.d
 C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\obj\Debug\Punisher.csprojResolveAssemblyReference.cache
 C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\obj\Debug\Punisher.dll
 C:\Users\Home\Documents\GitHub\Punisher\Hecsit\Punisher\obj\Debug\Punisher.pdb
+D:\Punisher\Hecsit\Punisher\bin\Debug\Castle.Core.dll
+D:\Punisher\Hecsit\Punisher\bin\Debug\Castle.Windsor.dll
+D:\Punisher\Hecsit\Punisher\bin\Debug\Castle.Core.xml
+D:\Punisher\Hecsit\Punisher\bin\Debug\Castle.Windsor.xml

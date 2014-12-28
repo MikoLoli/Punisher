@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Punisher.Domain;
 
-namespace PunisherConsole.API
+namespace Punisher.API
 {
     public class ActionAPI
     {

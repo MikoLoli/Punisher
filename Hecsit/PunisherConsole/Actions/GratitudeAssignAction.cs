@@ -26,7 +26,7 @@ namespace PunisherConsole.Actions
             Console.WriteLine("Введите диапазон дат для поиска плюсов у сотрудников : ");
             DateTime startDate = DateTime.Parse(Console.ReadLine());
             DateTime endDate = DateTime.Parse(Console.ReadLine());
-            DateTime d;
+           // DateTime d;
            // for (d = startDate; d.Date != endDate.Date; d.Date.AddDays(1))
             //{
              //   _employeeRepository.
