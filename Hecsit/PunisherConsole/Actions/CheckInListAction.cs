@@ -47,7 +47,7 @@ namespace PunisherConsole.Actions
 	    {
             Console.Clear();
             var employee = _employeeRepository.Get(employeeId);
-            Console.WriteLine("Сотрудник : " + employee.FIO);
+            Console.WriteLine("  Сотрудник : " + employee.FIO);
             Console.WriteLine("Персональнаый номер : " + employee.PersonnelNumber);
             Console.WriteLine("Должность : " + employee.Position);
             Console.WriteLine("Дата принятия на работу : " + employee.RecruitmentDate);
@@ -55,6 +55,15 @@ namespace PunisherConsole.Actions
             Console.WriteLine("Ставка : " + employee.WageRate);
             Console.WriteLine("Оклад : " + employee.Salary);
 
+            Console.WriteLine("\n  Деяния : ");
+            var employeeActions = _employeeActionRepository.AsQueryable().Where(x => x.Employee.Id == employeeId).ToList();
+            var n = 1;
+            foreach (var employeeActionsExample in employeeActions)
+            {
+                Console.WriteLine(n + " " + employeeActionsExample.Type.Name);
+                Console.WriteLine(employeeActionsExample.Date);
+                n++;
+            }
 	    }
     }
 }

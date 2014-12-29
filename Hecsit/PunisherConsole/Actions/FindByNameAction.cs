@@ -42,6 +42,16 @@ namespace PunisherConsole.Actions
                 Console.WriteLine("Репутация : " + employeeExample.Reputation);
                 Console.WriteLine("Ставка : " + employeeExample.WageRate);
                 Console.WriteLine("Оклад : " + employeeExample.Salary);
+
+                Console.WriteLine("\n  Деяния : ");
+                var employeeActions = _employeeActionRepository.AsQueryable().Where(x => x.Employee.Id == employeeExample.Id).ToList();
+                var n = 1;
+                foreach (var employeeActionsExample in employeeActions)
+                {
+                    Console.WriteLine(n + " " + employeeActionsExample.Type.Name);
+                    Console.WriteLine(employeeActionsExample.Date);
+                    n++;
+                }
             }
         }
     }

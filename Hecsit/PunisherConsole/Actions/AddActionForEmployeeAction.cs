@@ -17,10 +17,10 @@ namespace PunisherConsole.Actions
         private readonly IRepository<MeasureType> _measureTypesRepository;
         private readonly IRepository<Measure> _measureRepository;
 
-        public AddActionForEmployeeAction(ActionAPI actionApi, IRepository<Employee> employeeRepository, IRepository<EmployeeAction> employeeActionRepository, IRepository<ActionType> actionTypesRepository, IRepository<MeasureType> measureTypesRepository, IRepository<Measure> measureRepository)
+        public AddActionForEmployeeAction(ActionAPI actionApi, IRepository<EmployeeAction> employeeActionRepository, IRepository<ActionType> actionTypesRepository, IRepository<MeasureType> measureTypesRepository, IRepository<Measure> measureRepository)
         {
             _actionApi = actionApi;
-	        _employeeRepository = employeeRepository;
+	        _employeeRepository = _actionApi._employeeRepository;
 	        _employeeActionRepository = employeeActionRepository;
 	        _actionTypesRepository = actionTypesRepository;
 	        _measureTypesRepository = measureTypesRepository;
@@ -31,30 +31,34 @@ namespace PunisherConsole.Actions
 		{
 			Console.Clear();
             Console.WriteLine("Выберите сотрудника для добавления действия.");
-            var employees = _employeeRepository.AsQueryable().ToList();
-            var EmployeeCheckMenu = new MenuBuilder()
+            //var employees = _employeeRepository.AsQueryable().ToList();
+            //   |   |
+            //   |   |
+            //  \     /
+            //   \   /
+            //    \ /
+	        var employees = _employeeRepository.AsQueryable().ToList();
+            var employeeCheckMenu = new MenuBuilder()
                 .RunnableOnce()
                 .Title("Список сотрудников");
-            Employee selectedEmployee = new Employee();
+	        Guid selectedEmployeeId = employees[0].Id;
             foreach (var employeeExample in employees)
             {
-                var employeeId = employeeExample.Id;
-                EmployeeCheckMenu.Item(string.Format("-*-{0}", employeeExample.FIO), ctx => selectedEmployee = _employeeRepository.Get(employeeId));
+                employeeCheckMenu.Item(string.Format("-*-{0}", employeeExample.FIO), ctx => selectedEmployeeId = employeeExample.Id);
             }
-            EmployeeCheckMenu.GetMenu().Run();
+            employeeCheckMenu.GetMenu().Run();
 
             Console.Clear();
             var actionTypes = _actionTypesRepository.AsQueryable().ToList();
-            var ActionTypeCheckMenu = new MenuBuilder()
+            var actionTypeCheckMenu = new MenuBuilder()
                 .RunnableOnce()
                 .Title("Выберите тип деяния.");
-	        ActionType selectedAction = new ActionType();
+	        Guid selectedActionId = actionTypes[0].Id;
             foreach (var actTypeExample in actionTypes)
             {
-                var actionTypeId = actTypeExample.Id;
-                ActionTypeCheckMenu.Item(string.Format("-*-{0}", actTypeExample), ctx => selectedAction = _actionTypesRepository.Get(actionTypeId));
+                actionTypeCheckMenu.Item(string.Format("-*-{0}", actTypeExample.Name), ctx => selectedActionId = actTypeExample.Id);
             }
-            ActionTypeCheckMenu.GetMenu().Run();
+            actionTypeCheckMenu.GetMenu().Run();
 
             Console.Clear();
             Console.WriteLine("Введите дату деяния в формате mm/dd/yy hour:min:sec AM.");
@@ -64,8 +68,8 @@ namespace PunisherConsole.Actions
             Console.WriteLine("Введите комментарий/описание деяния.");
 	        string actDescription = Console.ReadLine();
             
-            _actionApi.AddActionForEmployee(selectedEmployee, DateTime.Parse(actTime, System.Globalization.CultureInfo.InvariantCulture),
-                actDescription, selectedAction);
+            _actionApi.AddActionForEmployee(selectedEmployeeId, DateTime.Parse(actTime, System.Globalization.CultureInfo.InvariantCulture),
+                actDescription, selectedActionId);
 
 
 	        /*List<Employee> employeeForAction = _employeeRepository.FindByFio(empFio);
@@ -88,23 +92,6 @@ namespace PunisherConsole.Actions
                 Console.WriteLine(employeeActionsExample.Date);
                 n++;
             }*/
-
-            
-
 		}
-
-        private Employee GetEmployeeById(ActionExecutionContext ctx, Guid employeeId)
-        {
-            Console.Clear();
-            return _employeeRepository.Get(employeeId);
-
-        }
-
-        private void GetActionTypeById(ActionExecutionContext ctx, Guid actTypeId)
-        {
-            Console.Clear();
-            var employee = _actionTypesRepository.Get(actTypeId);
-
-        }
 	}
 }

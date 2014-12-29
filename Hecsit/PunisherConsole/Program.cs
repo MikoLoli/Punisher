@@ -41,7 +41,7 @@ namespace PunisherConsole
                     .Item<DismissalAction>("Увольние") 
                     .Exit("Назад")
                     .End()
-                .Item<ShowAllAction>("Показать все действия")
+               // .Item<ShowAllAction>("Показать все действия")
 		        .Exit("Выход")
 		        .GetMenu()
 		        .Run();

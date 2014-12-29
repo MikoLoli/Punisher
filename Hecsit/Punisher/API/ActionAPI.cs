@@ -9,7 +9,7 @@ namespace Punisher.API
 {
     public class ActionAPI
     {
-        private readonly IRepository<Employee> _employeeRepository;
+        public readonly IRepository<Employee> _employeeRepository;
         private readonly IRepository<EmployeeAction> _employeeActionRepository;
         private readonly IRepository<ActionType> _actionTypesRepository;
         private readonly IRepository<MeasureType> _measureTypesRepository;
@@ -32,9 +32,11 @@ namespace Punisher.API
             _measureRepository = measureRepository;
 		}
 
-        public void AddActionForEmployee(Employee employeeForAction, DateTime dateForAction,
-            String descriptionForAction, ActionType actionTypeForAction)
+        public void AddActionForEmployee(Guid employeeForActionId, DateTime dateForAction,
+            String descriptionForAction, Guid actionTypeForActionId)
         {
+            var employeeForAction = _employeeRepository.Get(employeeForActionId);
+            var actionTypeForAction = _actionTypesRepository.Get(actionTypeForActionId);
             EmployeeAction action = new EmployeeAction(employeeForAction,
                dateForAction,descriptionForAction, actionTypeForAction);
             employeeForAction.AddAction(action);

@@ -59,8 +59,6 @@
     <Compile Include="Actions\FindByNameAction.cs" />
     <Compile Include="Actions\GratitudeAssignAction.cs" />
     <Compile Include="Actions\ShowAllAction.cs" />
-    <Compile Include="Actions\ViewEmployeeInfoAction.cs" />
-    <Compile Include="Actions\ViewEmployeeInformationAction.cs" />
     <Compile Include="Actions\VoyageAssignAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
