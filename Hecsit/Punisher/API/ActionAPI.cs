@@ -10,10 +10,10 @@ namespace Punisher.API
     public class ActionAPI
     {
         public readonly IRepository<Employee> _employeeRepository;
-        private readonly IRepository<EmployeeAction> _employeeActionRepository;
-        private readonly IRepository<ActionType> _actionTypesRepository;
-        private readonly IRepository<MeasureType> _measureTypesRepository;
-        private readonly IRepository<Measure> _measureRepository;
+        public readonly IRepository<EmployeeAction> _employeeActionRepository;
+        public readonly IRepository<ActionType> _actionTypesRepository;
+        public readonly IRepository<MeasureType> _measureTypesRepository;
+        public readonly IRepository<Measure> _measureRepository;
 
         public ActionAPI(IRepository<Employee> employeeRepository, IRepository<EmployeeAction> employeeActionRepository, 
             IRepository<ActionType> actionTypeRepository, IRepository<MeasureType> measureTypeRepository, 

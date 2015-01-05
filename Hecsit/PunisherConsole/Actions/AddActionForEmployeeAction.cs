@@ -11,20 +11,10 @@ namespace PunisherConsole.Actions
 	public class AddActionForEmployeeAction : IAction
 	{
         private readonly ActionAPI _actionApi;
-        private readonly IRepository<Employee> _employeeRepository;
-        private readonly IRepository<EmployeeAction> _employeeActionRepository;
-        private readonly IRepository<ActionType> _actionTypesRepository;
-        private readonly IRepository<MeasureType> _measureTypesRepository;
-        private readonly IRepository<Measure> _measureRepository;
 
-        public AddActionForEmployeeAction(ActionAPI actionApi, IRepository<EmployeeAction> employeeActionRepository, IRepository<ActionType> actionTypesRepository, IRepository<MeasureType> measureTypesRepository, IRepository<Measure> measureRepository)
+        public AddActionForEmployeeAction(ActionAPI actionApi)
         {
             _actionApi = actionApi;
-	        _employeeRepository = _actionApi._employeeRepository;
-	        _employeeActionRepository = employeeActionRepository;
-	        _actionTypesRepository = actionTypesRepository;
-	        _measureTypesRepository = measureTypesRepository;
-	        _measureRepository = measureRepository;
 	    }
 
 	    public void Perform(ActionExecutionContext context)
@@ -37,7 +27,7 @@ namespace PunisherConsole.Actions
             //  \     /
             //   \   /
             //    \ /
-	        var employees = _employeeRepository.AsQueryable().ToList();
+	        var employees = _actionApi._employeeRepository.AsQueryable().ToList();
             var employeeCheckMenu = new MenuBuilder()
                 .RunnableOnce()
                 .Title("Список сотрудников");
@@ -49,7 +39,7 @@ namespace PunisherConsole.Actions
             employeeCheckMenu.GetMenu().Run();
 
             Console.Clear();
-            var actionTypes = _actionTypesRepository.AsQueryable().ToList();
+            var actionTypes = _actionApi._actionTypesRepository.AsQueryable().ToList();
             var actionTypeCheckMenu = new MenuBuilder()
                 .RunnableOnce()
                 .Title("Выберите тип деяния.");

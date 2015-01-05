@@ -2,35 +2,24 @@
 using System.Linq;
 using Feonufry.CUI.Actions;
 using Feonufry.CUI.Menu.Builders;
+using Punisher.API;
 using Punisher.Domain;
 
 namespace PunisherConsole.Actions
 {
     public class CheckInListAction : IAction
     {
-        private readonly IRepository<Employee> _employeeRepository;
-        private readonly IRepository<EmployeeAction> _employeeActionRepository;
-        private readonly IRepository<ActionType> _actionTypesRepository;
-        private readonly IRepository<MeasureType> _measureTypesRepository;
-        private readonly IRepository<Measure> _measureRepository;
+        private readonly ActionAPI _actionApi;
 
-        public CheckInListAction(IRepository<Employee> employeeRepository,
-            IRepository<EmployeeAction> employeeActionRepository,
-            IRepository<ActionType> actionTypesRepository,
-            IRepository<MeasureType> measureTypesRepository,
-            IRepository<Measure> measureRepository)
+        public CheckInListAction(ActionAPI actionApi)
         {
-            _employeeRepository = employeeRepository;
-            _employeeActionRepository = employeeActionRepository;
-            _actionTypesRepository = actionTypesRepository;
-            _measureTypesRepository = measureTypesRepository;
-            _measureRepository = measureRepository;
+            _actionApi = actionApi;
         }
 
         public void Perform(ActionExecutionContext context)
         {
             Console.Clear();
-            var employees = _employeeRepository.AsQueryable().ToList();
+            var employees = _actionApi._employeeRepository.AsQueryable().ToList();
             var checkInListMenu = new MenuBuilder()
                 .RunnableOnce()
                 .Title("Список сотрудников");
@@ -46,7 +35,7 @@ namespace PunisherConsole.Actions
 	    private void GetInformation(ActionExecutionContext ctx, Guid employeeId)
 	    {
             Console.Clear();
-            var employee = _employeeRepository.Get(employeeId);
+            var employee = _actionApi._employeeRepository.Get(employeeId);
             Console.WriteLine("  Сотрудник : " + employee.FIO);
             Console.WriteLine("Персональнаый номер : " + employee.PersonnelNumber);
             Console.WriteLine("Должность : " + employee.Position);
@@ -56,7 +45,7 @@ namespace PunisherConsole.Actions
             Console.WriteLine("Оклад : " + employee.Salary);
 
             Console.WriteLine("\n  Деяния : ");
-            var employeeActions = _employeeActionRepository.AsQueryable().Where(x => x.Employee.Id == employeeId).ToList();
+            var employeeActions = _actionApi._employeeActionRepository.AsQueryable().Where(x => x.Employee.Id == employeeId).ToList();
             var n = 1;
             foreach (var employeeActionsExample in employeeActions)
             {

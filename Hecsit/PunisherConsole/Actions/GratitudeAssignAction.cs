@@ -1,23 +1,17 @@
 ﻿using System;
 using Feonufry.CUI.Actions;
+using Punisher.API;
 using Punisher.Domain;
 
 namespace PunisherConsole.Actions
 {
     public class GratitudeAssignAction : IAction
     {
-        private readonly IRepository<Employee> _employeeRepository;
-        private readonly IRepository<EmployeeAction> _employeeActionRepository;
-        private readonly IRepository<ActionType> _actionTypesRepository;
-        private readonly IRepository<MeasureType> _measureTypesRepository;
-        private readonly IRepository<Measure> _measureRepository;
-        public GratitudeAssignAction(IRepository<Employee> employeeRepository, IRepository<EmployeeAction> employeeActionRepository, IRepository<ActionType> actionTypesRepository, IRepository<MeasureType> measureTypesRepository, IRepository<Measure> measureRepository)
+        private readonly ActionAPI _actionApi;
+
+        public GratitudeAssignAction(ActionAPI actionApi)
         {
-            _employeeRepository = employeeRepository;
-            _employeeActionRepository = employeeActionRepository;
-            _actionTypesRepository = actionTypesRepository;
-            _measureTypesRepository = measureTypesRepository;
-            _measureRepository = measureRepository;
+            _actionApi = actionApi;
         }
 
         public void Perform(ActionExecutionContext context)
