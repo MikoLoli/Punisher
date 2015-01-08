@@ -7,15 +7,15 @@ namespace Punisher.Domain
     {
 		private readonly List<EmployeeAction> _employeeActions = new List<EmployeeAction>();
 
-        public string FIO { get; set; }
-        public string PersonnelNumber { get; set; }
-        public DateTime RecruitmentDate { get; set; }
-        public int Reputation { get; set; }
-        public string Position { get; set; }
-        public decimal WageRate { get; set; }
-        public decimal Salary { get; set; }
+        public virtual string FIO { get; set; }
+        public virtual string PersonnelNumber { get; set; }
+        public virtual DateTime RecruitmentDate { get; set; }
+        public virtual int Reputation { get; set; }
+        public virtual string Position { get; set; }
+        public virtual decimal WageRate { get; set; }
+        public virtual decimal Salary { get; set; }
 
-	    public IEnumerable<EmployeeAction> EmployeeActions
+	    public virtual IEnumerable<EmployeeAction> EmployeeActions
 	    {
 		    get { return _employeeActions; }
 	    }
@@ -23,7 +23,7 @@ namespace Punisher.Domain
 	    public Employee( string fio, string personnelNumber, DateTime recruitmentDate, 
             int reputation, string position, decimal wageRate, decimal salary)
         {
-            this.FIO = fio;
+            FIO = fio;
             this.PersonnelNumber = personnelNumber;
             this.RecruitmentDate = recruitmentDate;
             this.Reputation = reputation;
@@ -36,7 +36,7 @@ namespace Punisher.Domain
         {
         }
 
-        public void AddAction(EmployeeAction action)
+        public virtual void AddAction(EmployeeAction action)
         {
             _employeeActions.Add(action);
         }

@@ -3,9 +3,9 @@ namespace Punisher.Domain
 {
     public class ActionType : Entity
     {
-	    public string Name { get; set; }
-	    public MeasureType WeakMeasure { get; set; }
-	    public MeasureType StrongMeasure { get; set; }
+	    public virtual string Name { get; set; }
+	    public virtual MeasureType WeakMeasure { get; set; }
+	    public virtual MeasureType StrongMeasure { get; set; }
 
 	    public ActionType(string name, MeasureType weakMeasure, MeasureType strongMeasure)
 	    {

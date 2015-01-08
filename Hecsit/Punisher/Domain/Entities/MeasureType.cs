@@ -3,11 +3,15 @@ namespace Punisher.Domain
 {
     public class MeasureType : Entity
     {
-	    public string Name { get; set; }
-	    public MeasureKind Kind { get; set; }
-	    public int Score { get; set; }
+	    public virtual string Name { get; set; }
+	    public virtual MeasureKind Kind { get; set; }
+	    public virtual int Score { get; set; }
 
-	    public MeasureType(string name, MeasureKind kind, int score)
+        public MeasureType()
+        {
+        }
+
+        public MeasureType(string name, MeasureKind kind, int score)
 	    {
 		    Name = name;
 		    Kind = kind;

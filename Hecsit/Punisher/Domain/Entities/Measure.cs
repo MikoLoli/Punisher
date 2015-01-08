@@ -6,20 +6,20 @@ namespace Punisher.Domain
     {
 	    private bool _approved;
 
-        public DateTime Date { get; set; }
-        
-		public string Description { get; set; }
-
-	    public MeasureType Type { get; set; }
-
-	    public bool Approved
+        public virtual DateTime Date { get; set; }
+		public virtual string Description { get; set; }
+	    public virtual MeasureType Type { get; set; }
+	    public virtual bool Approved
 	    {
 		    get { return _approved; }
 	    }
+        public virtual Employee Employee { get; set; }
 
-	    public Employee Employee { get; set; }
+        public Measure()
+        {
+        }
 
-	    public Measure(DateTime date, string description, MeasureType type, Employee employee)
+        public Measure(DateTime date, string description, MeasureType type, Employee employee)
 	    {
 		    Date = date;
 		    Description = description;
@@ -27,7 +27,7 @@ namespace Punisher.Domain
 	        Employee = employee;
 	    }
 
-	    public void Approve()
+	    public virtual void Approve()
 	    {
 		    _approved = true;
 		    Date = DateTime.Now;

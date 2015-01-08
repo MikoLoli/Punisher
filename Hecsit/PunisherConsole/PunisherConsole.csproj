@@ -67,6 +67,7 @@
     <Compile Include="Actions\AddActionForEmployeeAction.cs" />
     <Compile Include="Actions\FindByNameAction.cs" />
     <Compile Include="Actions\GratitudeAssignAction.cs" />
+    <Compile Include="Actions\RecreateDb.cs" />
     <Compile Include="Actions\ShowAllAction.cs" />
     <Compile Include="Actions\VoyageAssignAction.cs" />
     <Compile Include="Program.cs" />

@@ -4,13 +4,17 @@ namespace Punisher.Domain
 {
     public class EmployeeAction : Entity
     {
-	    public Employee Employee { get; set; }
-	    public DateTime Date { get; set; }
-        public string Description { get; set; }
-	    public ActionType Type { get; set; }
-	    public Measure Measure { get; set; }
+	    public virtual Employee Employee { get; set; }
+	    public virtual DateTime Date { get; set; }
+        public virtual string Description { get; set; }
+	    public virtual ActionType Type { get; set; }
+	    public virtual Measure Measure { get; set; }
 
-	    public EmployeeAction(Employee employee, DateTime date, string description, ActionType type)
+        public EmployeeAction()
+        {
+        }
+
+        public EmployeeAction(Employee employee, DateTime date, string description, ActionType type)
 	    {
 		    Employee = employee;
 		    Date = date;

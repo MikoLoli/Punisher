@@ -44,6 +44,7 @@ namespace PunisherConsole
                     .Exit("Назад")
                     .End()
                 .Item<ShowAllAction>("Показать все действия")
+                .Item<RecreateDb>("Recreate DB")
 		        .Exit("Выход")
 		        .GetMenu()
 		        .Run();
