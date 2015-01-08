@@ -34,7 +34,6 @@ namespace Punisher.NHibernate
             _sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012
                 .ConnectionString(c => c.FromConnectionStringWithKey("PunisherConsole.Properties.Settings.PunisherDataBaseConnectionString")))
-                //.ConnectionString(c => c.FromConnectionStringWithKey("HotelBooking.ConsoleUI.Properties.Settings.HotelBookingDataBaseConnectionString")))
                 .Mappings(m =>m.FluentMappings.AddFromAssemblyOf<EmployeeMap>())
                 .CurrentSessionContext<ThreadStaticSessionContext>()
                 .BuildSessionFactory();

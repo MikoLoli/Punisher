@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Punisher.Domain
 {
+}
+
+/*{
     public class MemoryRepository<T> : IRepository<T> where T : Entity
     {
         private readonly Dictionary<Guid, T> _map = new Dictionary<Guid, T>();
@@ -27,4 +30,4 @@ namespace Punisher.Domain
             return _map.Values.AsQueryable();
         }
     }
-}
+}*/

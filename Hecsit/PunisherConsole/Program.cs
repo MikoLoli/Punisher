@@ -1,7 +1,7 @@
 ﻿using System;
 using Castle.Windsor;
 using Feonufry.CUI.Menu.Builders;
-using Punisher.Api;
+//using Punisher.Api;
 using Punisher.Domain;
 using Punisher.TestData;
 using PunisherConsole.Actions;
@@ -43,7 +43,7 @@ namespace PunisherConsole
                     .Item<DismissalAction>("Увольние") 
                     .Exit("Назад")
                     .End()
-               // .Item<ShowAllAction>("Показать все действия")
+                .Item<ShowAllAction>("Показать все действия")
 		        .Exit("Выход")
 		        .GetMenu()
 		        .Run();

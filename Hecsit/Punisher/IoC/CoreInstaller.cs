@@ -7,7 +7,7 @@ using Punisher.TestData;
 
 namespace Punisher.Api
 {
-    public class CoreInstaller : IWindsorInstaller
+   /* public class CoreInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
@@ -15,5 +15,5 @@ namespace Punisher.Api
             container.Register(Classes.FromThisAssembly().InSameNamespaceAs<ActionAPI>());
             container.Register(Component.For<TestDataGenerator>());
         }
-    }
+    }*/
 }

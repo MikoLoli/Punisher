@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Punisher.Domain;
+using Punisher.DTO;
 
 namespace Punisher.API
 {
@@ -41,6 +42,18 @@ namespace Punisher.API
                dateForAction,descriptionForAction, actionTypeForAction);
             employeeForAction.AddAction(action);
             _employeeActionRepository.Add(action);
+        }
+
+        public virtual List<EmployeeActionDto> ShowAllActions()
+        {
+            return _employeeActionRepository.AsQueryable()
+                .Select(x => new EmployeeActionDto()
+                {
+                    Id = x.Id,
+                    Employee = x.Employee.FIO,
+                    Type = x.Type.Name
+                })
+                .ToList();
         }
     }
 }
