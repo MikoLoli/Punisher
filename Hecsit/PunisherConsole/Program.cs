@@ -6,6 +6,7 @@ using Punisher.Domain;
 using Punisher.TestData;
 using PunisherConsole.Actions;
 using Punisher.API;
+using Punisher.CastleWindsor;
 
 namespace PunisherConsole
 {
@@ -14,9 +15,10 @@ namespace PunisherConsole
         static void Main(string[] args)
         {
             var container = new WindsorContainer();
-            container.Install(new CoreInstaller(), new UIInstaller());
-            var generator = container.Resolve<TestDataGenerator>();
-            generator.Generate();
+            //container.Install(new CoreInstaller(), new UIInstaller());
+            //var generator = container.Resolve<TestDataGenerator>();
+            //generator.Generate();
+            container.Install(new NhCoreInstaller(), new UIInstaller(), new DataGeneratorInstaller()); 
 
             Console.Clear();
 	        new MenuBuilder()

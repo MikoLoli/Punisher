@@ -32,7 +32,7 @@ namespace Punisher.API
             _measureRepository = measureRepository;
 		}
 
-        public void AddActionForEmployee(Guid employeeForActionId, DateTime dateForAction,
+        public virtual void AddActionForEmployee(Guid employeeForActionId, DateTime dateForAction,
             String descriptionForAction, Guid actionTypeForActionId)
         {
             var employeeForAction = _employeeRepository.Get(employeeForActionId);
