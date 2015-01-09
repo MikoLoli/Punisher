@@ -67,6 +67,7 @@
     <Compile Include="CastleWindsor\DataGeneratorInstaller.cs" />
     <Compile Include="CastleWindsor\NhCoreInstaller.cs" />
     <Compile Include="Domain\Repositories\NhRepository.cs" />
+    <Compile Include="Domain\RepositoryExtentions\EmployeeActionRepositoryExtention.cs" />
     <Compile Include="Domain\RepositoryExtentions\MeasureTypeRepositoryExtention.cs" />
     <Compile Include="DTO\ActionTypeDto.cs" />
     <Compile Include="DTO\EmployeeActionDto.cs" />

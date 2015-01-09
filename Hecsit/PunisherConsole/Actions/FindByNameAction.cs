@@ -4,16 +4,19 @@ using Feonufry.CUI.Actions;
 using Feonufry.CUI.Menu.Builders;
 using Punisher.API;
 using Punisher.Domain;
+using Punisher.Domain.RepositoryExtentions;
 
 namespace PunisherConsole.Actions
 {
     public class FindByNameAction : IAction
     {
         private readonly ActionAPI _actionApi;
+        private readonly GetListOfResourcesApi _resourceApi;
 
-        public FindByNameAction(ActionAPI actionApi)
+        public FindByNameAction(ActionAPI actionApi, GetListOfResourcesApi resourceApi)
         {
             _actionApi = actionApi;
+            _resourceApi = resourceApi;
         }
 
         public void Perform(ActionExecutionContext context)
@@ -33,7 +36,7 @@ namespace PunisherConsole.Actions
                 Console.WriteLine("Оклад : " + employeeExample.Salary);
 
                 Console.WriteLine("\n  Деяния : ");
-                var employeeActions = _actionApi._employeeActionRepository.AsQueryable().Where(x => x.Employee.Id == employeeExample.Id).ToList();
+                var employeeActions = _resourceApi._employeeActionRepository.FindActionByEmployeeFio(employeeFio);
                 var n = 1;
                 foreach (var employeeActionsExample in employeeActions)
                 {

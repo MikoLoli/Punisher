@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Punisher.Domain;
+using Punisher.Domain.RepositoryExtentions;
 using Punisher.DTO;
 
 namespace Punisher.API
@@ -52,20 +53,17 @@ namespace Punisher.API
              */
         //}
 
-        /*public virtual List<VisitDto> GetVisitsByStatus(VisitStatus visitStatus)
+        public virtual IEnumerable<EmployeeActionDto> GetActionByEmployeeFio(string employeeFio)
         {
-            return _visitsRepository.ForStatus(visitStatus)
-                .Select(x => new VisitDto
+            return _employeeActionRepository.FindActionByEmployeeFio(employeeFio)
+                .Select(x => new EmployeeActionDto
                 {
                     Id = x.Id,
-                    CheckInDate = x.CheckInDate,
-                    CheckOutDate = x.CheckOutDate,
-                    Status = x.Status,
-                    TotalCost = x.TotalCost,
-                    ClientName = x.Client.FullName
-                })
-                .ToList();
+                    Type = x.Type.Name,
+                    Date = x.Date,
+                    Description = x.Description
+                });
         }
-        */
+        
     }
 }

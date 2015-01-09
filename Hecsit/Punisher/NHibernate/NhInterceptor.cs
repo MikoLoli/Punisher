@@ -21,6 +21,7 @@ namespace Punisher.NHibernate
 
         public void Intercept(IInvocation invocation)
         {
+            //using (var session = _sessionFactory.OpenSession())
             using (var session = _sessionFactory.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
