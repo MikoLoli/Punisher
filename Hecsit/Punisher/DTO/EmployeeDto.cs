@@ -6,6 +6,7 @@ namespace Punisher.DTO
     {
         public Guid Id { get; set; }
         public string FIO { get; set; }
+        public string PersonnelNumber { get; set; }
         public DateTime RecruitmentDate { get; set; }
         public int Reputation { get; set; }
         public string Position { get; set; }

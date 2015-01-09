@@ -63,9 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\ActionAPI.cs" />
+    <Compile Include="API\GetListOfResourcesApi.cs" />
     <Compile Include="CastleWindsor\DataGeneratorInstaller.cs" />
     <Compile Include="CastleWindsor\NhCoreInstaller.cs" />
     <Compile Include="Domain\Repositories\NhRepository.cs" />
+    <Compile Include="Domain\RepositoryExtentions\MeasureTypeRepositoryExtention.cs" />
     <Compile Include="DTO\ActionTypeDto.cs" />
     <Compile Include="DTO\EmployeeActionDto.cs" />
     <Compile Include="DTO\EmployeeDto.cs" />

@@ -15,7 +15,7 @@ namespace Punisher.Domain
         public virtual decimal WageRate { get; set; }
         public virtual decimal Salary { get; set; }
 
-	    public virtual IEnumerable<EmployeeAction> EmployeeActions
+	    public virtual List<EmployeeAction> EmployeeActions
 	    {
 		    get { return _employeeActions; }
 	    }
@@ -39,13 +39,6 @@ namespace Punisher.Domain
         public virtual void AddAction(EmployeeAction action)
         {
             _employeeActions.Add(action);
-        }
-
-        public override string ToString()
-        {
-            return string.Format(" Сотрудник {0}\n Персональный номер: {1}\n Дата приема на работу: {2}\n " +
-                                 "Репутация: {3}\n Должность: {4}\n Ставка: {5}\n Оклад: {6}$\n", FIO, 
-                                 PersonnelNumber, RecruitmentDate, Reputation, Position, WageRate, Salary);
         }
     }
 }

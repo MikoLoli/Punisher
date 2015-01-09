@@ -33,7 +33,7 @@ namespace Punisher.NHibernate
         {
             _sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012
-                .ConnectionString(c => c.FromConnectionStringWithKey("PunisherConsole.Properties.Settings.PunisherDataBaseConnectionString")))
+                .ConnectionString("Data Source=(localdb)\\Projects;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False"))
                 .Mappings(m =>m.FluentMappings.AddFromAssemblyOf<EmployeeMap>())
                 .CurrentSessionContext<ThreadStaticSessionContext>()
                 .BuildSessionFactory();
@@ -44,7 +44,7 @@ namespace Punisher.NHibernate
         {
             _sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012
-                .ConnectionString(c => c.FromConnectionStringWithKey("PunisherConsole.Properties.Settings.PunisherDataBaseConnectionString")))
+                .ConnectionString("Data Source=(localdb)\\Projects;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False"))
                 .Mappings(m =>m.FluentMappings.AddFromAssemblyOf<EmployeeMap>())
                 .CurrentSessionContext<ThreadStaticSessionContext>()
                 .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(false, true))

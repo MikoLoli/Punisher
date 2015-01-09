@@ -13,7 +13,7 @@ namespace Punisher.NHibernate.Mappings
     {
         public ActionTypeMap()
         {
-            Table("Action Types");
+            Table("ActionTypes");
             Id(x => x.Id);
             Map(x => x.Name);
             References(x => x.WeakMeasure);

@@ -7,7 +7,7 @@ namespace Punisher.Domain
 {
     public static class EmployeeRepositoryExtention
     {
-        public static List<Employee> FindByFio(this IRepository<Employee> repository, String employeeFio)
+        public static List<Employee> FindByFio(this IRepository<Employee> repository, string employeeFio)
         {
             return repository.AsQueryable().Where(x => x.FIO == employeeFio).ToList();
         }

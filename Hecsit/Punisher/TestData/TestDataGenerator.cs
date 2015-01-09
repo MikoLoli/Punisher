@@ -2,6 +2,7 @@
 using System.Linq;
 using Punisher.API;
 using Punisher.Domain;
+using Punisher.Domain.RepositoryExtentions;
 
 namespace Punisher.TestData
 {
@@ -13,8 +14,10 @@ namespace Punisher.TestData
 	    {
             _actionApi = actionApi;
 	    }
+        public TestDataGenerator()
+        { }
 
-	    public void Generate()
+	    public virtual void Generate()
 		{
             _actionApi._measureTypesRepository.Add(new MeasureType("Прощение грехов", MeasureKind.Bonus, 0));
             _actionApi._measureTypesRepository.Add(new MeasureType("Выговор", MeasureKind.Penalty, 1));
@@ -27,23 +30,23 @@ namespace Punisher.TestData
 
 
             _actionApi._actionTypesRepository.Add(new ActionType("Прогул до 4х часов",
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(0),
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(1)));
+                _actionApi._measureTypesRepository.FindByName("Прощение грехов"),
+                _actionApi._measureTypesRepository.FindByName("Выговор")));
             _actionApi._actionTypesRepository.Add(new ActionType("Прогул от 4х часов до дня",
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(1),
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(2)));
+                _actionApi._measureTypesRepository.FindByName("Выговор"),
+                _actionApi._measureTypesRepository.FindByName("Дисциплинарное взыскание")));
             _actionApi._actionTypesRepository.Add(new ActionType("Повреждение имущества",
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(2),
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(3)));
+                _actionApi._measureTypesRepository.FindByName("Дисциплинарное взыскание"),
+                _actionApi._measureTypesRepository.FindByName("Вычет из заработной платы")));
             _actionApi._actionTypesRepository.Add(new ActionType("Хищение/уничтожение имущества",
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(3),
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(4)));
+                _actionApi._measureTypesRepository.FindByName("Вычет из заработной платы"),
+                _actionApi._measureTypesRepository.FindByName("Увольнение")));
             _actionApi._actionTypesRepository.Add(new ActionType("Переработка",
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(5),
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(6)));
+                _actionApi._measureTypesRepository.FindByName("Благодарность"),
+                _actionApi._measureTypesRepository.FindByName("Премия")));
             _actionApi._actionTypesRepository.Add(new ActionType("Творческое задание",
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(6),
-                _actionApi._measureTypesRepository.AsQueryable().ElementAt<MeasureType>(7)));
+                _actionApi._measureTypesRepository.FindByName("Премия"),
+                _actionApi._measureTypesRepository.FindByName("Путевка")));
 
 
             _actionApi._employeeRepository.Add(new Employee("Nolan Ross", "001", DateTime.Parse("2/16/2008 11:15:12 AM", System.Globalization.CultureInfo.InvariantCulture),
@@ -59,14 +62,15 @@ namespace Punisher.TestData
             _actionApi._employeeRepository.Add(new Employee("Margaux LeMarchal", "006", DateTime.Parse("3/14/2012 10:05:48 AM", System.Globalization.CultureInfo.InvariantCulture),
                 1, "PR manager", 1.0m, 50000.0m));
 
-            _actionApi._employeeActionRepository.Add(new EmployeeAction(_actionApi._employeeRepository.AsQueryable().ElementAt<Employee>(2),
+            _actionApi._employeeActionRepository.Add(new EmployeeAction(_actionApi._employeeRepository.FindByFio("Mason Treadwell")[0],
                 DateTime.Now.Subtract(TimeSpan.FromDays(2)),
                 "None",
-                _actionApi._actionTypesRepository.AsQueryable().ElementAt<ActionType>(0)));
-            _actionApi._employeeActionRepository.Add(new EmployeeAction(_actionApi._employeeRepository.AsQueryable().ElementAt<Employee>(0),
+                _actionApi._actionTypesRepository.AsQueryable().FirstOrDefault(x => x.Name.Equals("Прогул до 4х часов"))));
+               // _actionApi._actionTypesRepository.FindByName("Прогул до 4х часов")));
+            _actionApi._employeeActionRepository.Add(new EmployeeAction(_actionApi._employeeRepository.FindByFio("Nolan Ross")[0],
                 DateTime.Now.Subtract(TimeSpan.FromDays(17)),
                 "He's so cute",
-                _actionApi._actionTypesRepository.AsQueryable().ElementAt<ActionType>(4)));
+                _actionApi._actionTypesRepository.AsQueryable().FirstOrDefault(x => x.Name.Equals("Переработка"))));
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace Punisher.Domain
             _id = Guid.NewGuid();
         }
 
-        public Guid Id
+        public virtual Guid Id
         {
             get { return _id; }
         }
