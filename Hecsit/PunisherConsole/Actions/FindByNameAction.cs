@@ -24,7 +24,8 @@ namespace PunisherConsole.Actions
             Console.Clear();
             Console.WriteLine("Введите ФИО сотрудника: ");
             string employeeFio = Console.ReadLine();
-            var employees = _actionApi._employeeRepository.FindByFio(employeeFio);
+            var employees = _resourceApi.GetEmployeeListByFio(employeeFio);
+            //var employees = _actionApi._employeeRepository.FindByFio(employeeFio);
             foreach (var employeeExample in employees)
             {
                 Console.WriteLine("Сотрудник : " + employeeExample.FIO);
@@ -36,11 +37,12 @@ namespace PunisherConsole.Actions
                 Console.WriteLine("Оклад : " + employeeExample.Salary);
 
                 Console.WriteLine("\n  Деяния : ");
-                var employeeActions = _resourceApi._employeeActionRepository.FindActionByEmployeeFio(employeeFio);
+                //var employeeActions = _resourceApi._employeeActionRepository.FindActionByEmployeeFio(employeeFio);
+                var employeeActions = _resourceApi.GetActionByEmployeeFio(employeeFio);
                 var n = 1;
                 foreach (var employeeActionsExample in employeeActions)
                 {
-                    Console.WriteLine(n + " " + employeeActionsExample.Type.Name);
+                    Console.WriteLine(n + " " + employeeActionsExample.Type);
                     Console.WriteLine(employeeActionsExample.Date);
                     n++;
                 }

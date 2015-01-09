@@ -2,6 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Feonufry.CUI.Actions;
+using Punisher.NHibernate;
 
 namespace PunisherConsole
 {

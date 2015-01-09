@@ -55,5 +55,16 @@ namespace Punisher.API
                 })
                 .ToList();
         }
+
+        public virtual List<EmployeeDto> ShowAllEmployee()
+        {
+            return _employeeRepository.AsQueryable()
+                .Select(x => new EmployeeDto()
+                {
+                    Id = x.Id,
+                    FIO = x.FIO
+                })
+                .ToList();
+        }
     }
 }

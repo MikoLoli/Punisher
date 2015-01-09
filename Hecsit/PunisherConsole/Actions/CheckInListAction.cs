@@ -10,16 +10,18 @@ namespace PunisherConsole.Actions
     public class CheckInListAction : IAction
     {
         private readonly ActionAPI _actionApi;
+        private readonly GetListOfResourcesApi _resourceApi;
 
-        public CheckInListAction(ActionAPI actionApi)
+        public CheckInListAction(ActionAPI actionApi, GetListOfResourcesApi resourceApi)
         {
             _actionApi = actionApi;
+            _resourceApi = resourceApi;
         }
 
         public void Perform(ActionExecutionContext context)
         {
             Console.Clear();
-            var employees = _actionApi._employeeRepository.AsQueryable().ToList();
+            var employees = _actionApi.ShowAllEmployee();
             var checkInListMenu = new MenuBuilder()
                 .RunnableOnce()
                 .Title("Список сотрудников");
@@ -35,7 +37,7 @@ namespace PunisherConsole.Actions
 	    private void GetInformation(ActionExecutionContext ctx, Guid employeeId)
 	    {
             Console.Clear();
-            var employee = _actionApi._employeeRepository.Get(employeeId);
+            var employee = _resourceApi.GetEmployeeById(employeeId);
             Console.WriteLine("  Сотрудник : " + employee.FIO);
             Console.WriteLine("Персональнаый номер : " + employee.PersonnelNumber);
             Console.WriteLine("Должность : " + employee.Position);
@@ -45,11 +47,11 @@ namespace PunisherConsole.Actions
             Console.WriteLine("Оклад : " + employee.Salary);
 
             Console.WriteLine("\n  Деяния : ");
-            var employeeActions = _actionApi._employeeActionRepository.AsQueryable().Where(x => x.Employee.Id == employeeId).ToList();
+            var employeeActions = _resourceApi.GetActionByEmployeeFio(employee.FIO);
             var n = 1;
             foreach (var employeeActionsExample in employeeActions)
             {
-                Console.WriteLine(n + " " + employeeActionsExample.Type.Name);
+                Console.WriteLine(n + " " + employeeActionsExample.Type);
                 Console.WriteLine(employeeActionsExample.Date);
                 n++;
             }

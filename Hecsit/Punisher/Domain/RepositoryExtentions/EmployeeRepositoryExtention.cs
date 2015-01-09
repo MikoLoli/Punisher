@@ -12,9 +12,9 @@ namespace Punisher.Domain
             return repository.AsQueryable().Where(x => x.FIO == employeeFio).ToList();
         }
 
-        //public static List<Employee> FindByTimeAndPlus(this IRepository<Employee> repository, DateTime employeeActionDate, EmployeeAction employeeAction)
-        //{
-         //   return repository.AsQueryable().Where(x => x.EmployeeActions.;
-        //}
+        public static Employee FindById(this IRepository<Employee> repository, Guid employeeId)
+        {
+            return repository.AsQueryable().FirstOrDefault(x => x.Id == employeeId);
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Punisher.Domain;
 
 namespace Punisher.DTO
 {
@@ -12,6 +14,6 @@ namespace Punisher.DTO
         public string Position { get; set; }
         public decimal WageRate { get; set; }
         public decimal Salary { get; set; }
-        public string Action { get; set; }
+        //public List<EmployeeActionDto> Action { get; set; }
     }
 }

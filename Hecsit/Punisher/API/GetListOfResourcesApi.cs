@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentNHibernate.Utils;
 using Punisher.Domain;
 using Punisher.Domain.RepositoryExtentions;
 using Punisher.DTO;
@@ -53,7 +54,36 @@ namespace Punisher.API
              */
         //}
 
-        public virtual IEnumerable<EmployeeActionDto> GetActionByEmployeeFio(string employeeFio)
+        public virtual EmployeeDto GetEmployeeById(Guid employeeId)
+        {
+            var employee = _employeeRepository.FindById(employeeId);
+            var employeeDto = new EmployeeDto();
+            employeeDto.Id = employee.Id;
+            employeeDto.FIO = employee.FIO;
+            employeeDto.PersonnelNumber = employee.PersonnelNumber;
+            employeeDto.RecruitmentDate = employee.RecruitmentDate;
+            employeeDto.Reputation = employee.Reputation;
+            employeeDto.Position = employee.Position;
+            employeeDto.WageRate = employee.WageRate;
+            employeeDto.Salary = employee.Salary;
+            return employeeDto;
+        }
+        public virtual List<EmployeeDto> GetEmployeeListByFio(string employeeFio)
+        {
+            return _employeeRepository.FindByFio(employeeFio)
+                .Select(x => new EmployeeDto
+                {
+                    Id = x.Id,
+                    FIO = x.FIO,
+                    PersonnelNumber = x.PersonnelNumber,
+                    RecruitmentDate = x.RecruitmentDate,
+                    Position = x.Position,
+                    Reputation = x.Reputation,
+                    WageRate = x.WageRate,
+                    Salary = x.Salary,
+                }).ToList();
+        }
+        public virtual List<EmployeeActionDto> GetActionByEmployeeFio(string employeeFio)
         {
             return _employeeActionRepository.FindActionByEmployeeFio(employeeFio)
                 .Select(x => new EmployeeActionDto
@@ -62,7 +92,7 @@ namespace Punisher.API
                     Type = x.Type.Name,
                     Date = x.Date,
                     Description = x.Description
-                });
+                }).ToList();
         }
         
     }
