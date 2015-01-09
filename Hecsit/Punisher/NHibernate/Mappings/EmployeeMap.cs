@@ -22,10 +22,7 @@ namespace Punisher.NHibernate.Mappings
             Map(x => x.Position);
             Map(x => x.WageRate).CustomType<decimal>();
             Map(x => x.Salary).CustomType<decimal>();
-            HasMany(x => x.EmployeeActions)
-                .Table("Actions")
-                .KeyColumn("Id")
-                .Cascade.All();
+            HasMany(x => x.EmployeeActions);
         }
     }
 }

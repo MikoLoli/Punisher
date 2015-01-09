@@ -25,10 +25,8 @@ D:\Punisher\Hecsit\Punisher\bin\Debug\Castle.Windsor.xml
 D:\Punisher\Hecsit\Punisher\bin\Debug\FluentNHibernate.dll
 D:\Punisher\Hecsit\Punisher\bin\Debug\Iesi.Collections.dll
 D:\Punisher\Hecsit\Punisher\bin\Debug\NHibernate.dll
-D:\Punisher\Hecsit\Punisher\bin\Debug\FluentNHibernate.pdb
 D:\Punisher\Hecsit\Punisher\bin\Debug\FluentNHibernate.xml
 D:\Punisher\Hecsit\Punisher\bin\Debug\Iesi.Collections.xml
-D:\Punisher\Hecsit\Punisher\bin\Debug\NHibernate.pdb
 D:\Punisher\Hecsit\Punisher\bin\Debug\NHibernate.xml
 C:\Users\Pavero\Source\Repos\Punisher\Hecsit\Punisher\bin\Debug\Punisher.dll.config
 C:\Users\Pavero\Source\Repos\Punisher\Hecsit\Punisher\bin\Debug\Punisher.dll

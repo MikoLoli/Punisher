@@ -5,7 +5,7 @@ namespace Punisher.Domain
 {
     public class Employee : Entity
     {
-		private readonly List<EmployeeAction> _employeeActions = new List<EmployeeAction>();
+		private readonly IList<EmployeeAction> _employeeActions = new List<EmployeeAction>();
 
         public virtual string FIO { get; set; }
         public virtual string PersonnelNumber { get; set; }
@@ -15,7 +15,7 @@ namespace Punisher.Domain
         public virtual decimal WageRate { get; set; }
         public virtual decimal Salary { get; set; }
 
-	    public virtual List<EmployeeAction> EmployeeActions
+	    public virtual IList<EmployeeAction> EmployeeActions
 	    {
 		    get { return _employeeActions; }
 	    }
